@@ -7,7 +7,12 @@ public class PickUp : MonoBehaviour
     public GameObject[] guns;
     private bool isGun = false;
     private string gunName;
+    public WaitForSeconds cesetTime;
 
+    private void Start()
+    {
+        cesetTime = new WaitForSeconds(5f);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,6 +20,11 @@ public class PickUp : MonoBehaviour
         {
             gunName = other.gameObject.name;
             isGun = true;
+        }
+        else if(other.tag == "Ceset")
+        {
+            //GetComponent<Animator>().SetBool("ceset-kaldirma", true);
+            StartCoroutine(CesetTimer());
         }
     }
 
@@ -40,5 +50,15 @@ public class PickUp : MonoBehaviour
             }
             Destroy(GameObject.FindWithTag("Gun"));
         }
+    }
+
+    private IEnumerator CesetTimer()
+    {
+        /*
+         *  Taþýdýðýmýz ceset sayýsýný gösteren canvas nesnelerini deðiþtir. 
+         */
+
+        yield return cesetTime;
+        //GetComponent<Animator>().SetBool("ceset-kaldirma", false);
     }
 }
