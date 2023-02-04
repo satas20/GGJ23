@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class Shooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
@@ -11,11 +11,14 @@ public class Shooting : MonoBehaviour
     private float nextFireTime;
     private Transform firePoint;
     public int gunNO;
+    public int levelValue=1;
     public GameObject frontCanva;
     public Sprite[] gunSprites;
-
+    public TMP_Text ammoCounter;
+    public int ammoCount;
     private Animator anim;
     private bool isFire = false;
+
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -24,14 +27,16 @@ public class Shooting : MonoBehaviour
         {
             Debug.LogError("FirePoint object not found.");
         }
-        gunNO = 4;
+        gunNO = 1;
     }
 
     void Update()
     {
+        ammoCounter.text = ("x "+ammoCount.ToString());
         anim.SetBool("fire", isFire);
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime && ammoCount>0)
         {
+            ammoCount --;
             isFire = true;
             if(gunNO == 0)
             {
@@ -40,10 +45,6 @@ public class Shooting : MonoBehaviour
             else if(gunNO == 1)
             {   
                 M1CarbineShoot();
-            }
-            else if(gunNO == 2)
-            {
-                AxeShoot();
             }
             else
             {
@@ -63,7 +64,7 @@ public class Shooting : MonoBehaviour
         bulletSpeed = 10f;
 
         nextFireTime = Time.time + fireRate;
-
+        
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         Vector2 direction = (mousePosition - firePointPosition).normalized;
@@ -76,8 +77,9 @@ public class Shooting : MonoBehaviour
     void M1CarbineShoot()
     {
         fireRate = 2f;
-        bulletSpeed = 25f;
+        bulletSpeed = 30f;
 
+        
         nextFireTime = Time.time + fireRate;
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -85,27 +87,13 @@ public class Shooting : MonoBehaviour
         Vector2 direction = (mousePosition - firePointPosition).normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
+        bullet.GetComponent<Bullet>().damage = 30;
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         //frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[1];
 
     }
 
-    void AxeShoot()
-    {
-        fireRate = 1f;
-        bulletSpeed = 10f;
-
-        nextFireTime = Time.time + fireRate;
-
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
-        Vector2 direction = (mousePosition - firePointPosition).normalized;
-
-        GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        //frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[2];
-
-    }
+  
 
     void DontShoot()
     {

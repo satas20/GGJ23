@@ -4,61 +4,27 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public GameObject[] guns;
-    private bool isGun = false;
-    private string gunName;
-    public WaitForSeconds cesetTime;
+   
 
     private void Start()
     {
-        cesetTime = new WaitForSeconds(5f);
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Gun")
+        if (other.CompareTag("Ceset"))
         {
-            gunName = other.gameObject.name;
-            isGun = true;
-        }
-        else if(other.tag == "Ceset")
-        {
-            //GetComponent<Animator>().SetBool("ceset-kaldirma", true);
-            StartCoroutine(CesetTimer());
+            
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // Perform the pickup logic here
+                Debug.Log("Picked up item!");
+            }
         }
     }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Gun")
-        {
-            gunName = "";
-            isGun = false;
-        }
-    }
-
     private void Update()
     {
-        if (isGun && Input.GetKeyDown(KeyCode.E))
-        {
-            for(int i = 0; i < guns.Length; i++)
-            {
-                if (guns[i].name == gunName)
-                {
-                    GetComponent<Shooting>().gunNO = i;
-                }
-            }
-            Destroy(GameObject.FindWithTag("Gun"));
-        }
-    }
-
-    private IEnumerator CesetTimer()
-    {
-        /*
-         *  Taþýdýðýmýz ceset sayýsýný gösteren canvas nesnelerini deðiþtir. 
-         */
-
-        yield return cesetTime;
-        //GetComponent<Animator>().SetBool("ceset-kaldirma", false);
+            
     }
 }
