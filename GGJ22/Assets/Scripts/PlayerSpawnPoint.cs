@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerSpawnPoint : MonoBehaviour
 {
-    public GameObject[] shacks;
+    public GameObject[] kabin;
 
     private void Start()
     {
-        shacks = GameObject.FindGameObjectsWithTag("Shack");
-        int randomIndex = Random.Range(0, shacks.Length);
-        transform.position = shacks[randomIndex].transform.position;
+        kabin = GameObject.FindGameObjectsWithTag("Shack");
+        int randomIndex = Random.Range(0, kabin.Length);
+        transform.position = kabin[randomIndex].transform.position;
     }
 }

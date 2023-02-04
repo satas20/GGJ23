@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c6d4272f5102c2459fda8776ee0ff91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 2056980506071934647, guid: ff751d2e9601a13499f5cfb79841dbae, type: 3}
+  playerPrefab: {fileID: 0}
   furnagePrefab: {fileID: 7284659505103574705, guid: a1c2dfec67c6c6345a2c0594afce1f0e, type: 3}
   colliderRadiusFurnage: 20
-  shackPrefab: {fileID: 4819832230888279697, guid: 58113588a8761bd4cab783cdb8972d41, type: 3}
+  kabinPrefab: {fileID: 4819832230888279697, guid: 58113588a8761bd4cab783cdb8972d41, type: 3}
   colliderRadiusShacks: 10
   numberOfShacks: 6
   mapWidth: 100

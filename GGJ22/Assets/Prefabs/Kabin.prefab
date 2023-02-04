@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7593115917939591767}
   - component: {fileID: 1904085650226839750}
   m_Layer: 0
-  m_Name: Shack
-  m_TagString: Shack
+  m_Name: Kabin
+  m_TagString: Kabin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

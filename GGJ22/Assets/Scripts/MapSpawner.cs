@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MapSpawner : MonoBehaviour
 {
+    public GameObject cam;
     public GameObject playerPrefab;
     public GameObject furnagePrefab;
     public int colliderRadiusFurnage;
-    public GameObject shackPrefab;
+    public GameObject kabinPrefab;
     public int colliderRadiusShacks;
     public int numberOfShacks;
     public float mapWidth;
@@ -27,16 +28,18 @@ public class MapSpawner : MonoBehaviour
         {
             Vector2 randomPos = new Vector2(Random.Range(-mapWidth / 2, mapWidth / 2),
                                             Random.Range(-mapHeight / 2, mapHeight / 2));
-            GameObject shack = shackPrefab;
+            GameObject kabin = kabinPrefab;
 
             Collider2D[] colliders = Physics2D.OverlapCircleAll(randomPos, 0.1f);
             if (colliders.Length == 0)
             {
-                Instantiate(shack, randomPos, Quaternion.identity);
+                Instantiate(kabin, randomPos, Quaternion.identity);
 
                 if (i == spawnedShack)
                 {
-                    Instantiate(playerPrefab, randomPos, Quaternion.identity);
+                    GameObject player = Instantiate(playerPrefab, randomPos, Quaternion.identity);
+                    GameObject camera = Instantiate(cam, player.transform.position, Quaternion.identity);
+                    camera.gameObject.GetComponent<CameraFollow>().target = player.transform;
                 }
             }
             else

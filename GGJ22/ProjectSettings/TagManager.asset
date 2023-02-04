@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Shack
+  - Kabin
+  - Gun
   layers:
   - Default
   - TransparentFX
