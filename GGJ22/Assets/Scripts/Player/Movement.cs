@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     public float speed;
     private Rigidbody2D rigidBody2D;
     private Animator animator;
-
+    Vector2 direction;
     void Start()
     {
         speed = 10f;
@@ -33,12 +33,16 @@ public class Movement : MonoBehaviour
             animator.SetBool("IsRunning", false);
 
         }
-        Vector2 direction = new Vector2(horizontal, vertical);
-        rigidBody2D.velocity = direction * speed;
+         direction = new Vector2(horizontal, vertical);
+        //rigidBody2D.velocity = direction * speed;
         if (direction.magnitude > 0) { animator.SetBool("IsWalking", true);}
         else
         {
             animator.SetBool("IsWalking", false);
         }
+    }
+    private void FixedUpdate()
+    {
+        rigidBody2D.velocity = direction * walkSpeed;
     }
 }
