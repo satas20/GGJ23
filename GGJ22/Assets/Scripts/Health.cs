@@ -4,7 +4,7 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 100; // maximum health
     public int currentHealth; // current health
-
+    public ParticleSystem hitParticle;
     void Start()
     {
         currentHealth = maxHealth; // set initial health to maximum
@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
         {
             Die(); // call the die function if health reaches zero
         }
+        hitParticle.Play();
     }
 
     void Die()
