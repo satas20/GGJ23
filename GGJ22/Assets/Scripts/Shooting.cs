@@ -13,8 +13,11 @@ public class Shooting : MonoBehaviour
     public GameObject frontCanva;
     public Sprite[] gunSprites;
 
+    private Animator anim;
+    private bool isFire = false;
     void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
         {
@@ -25,15 +28,16 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
+        anim.SetBool("fire", isFire);
         if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
-            GetComponent<Animator>().SetBool("fire",true);
+            isFire = true;
             if(gunNO == 0)
             {
                 LugerShoot();
             }
             else if(gunNO == 1)
-            {
+            {   
                 M1CarbineShoot();
             }
             else if(gunNO == 2)
@@ -44,10 +48,14 @@ public class Shooting : MonoBehaviour
             {
                 DontShoot();
             }
-            GetComponent<Animator>().SetBool("fire", false);
+           
         }
+        if (Input.GetMouseButtonUp(0)){
+            isFire = false;
+        }
+        
     }
-
+    
     void LugerShoot()
     {
         nextFireTime = Time.time + fireRate;

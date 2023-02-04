@@ -25,13 +25,20 @@ public class Movement : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
         {
             speed = runSpeed;
+            animator.SetBool("IsRunning", true);
         }
         else
         {
             speed = walkSpeed;
+            animator.SetBool("IsRunning", false);
+
         }
         Vector2 direction = new Vector2(horizontal, vertical);
         rigidBody2D.velocity = direction * speed;
-        
+        if (direction.magnitude > 0) { animator.SetBool("IsWalking", true);}
+        else
+        {
+            animator.SetBool("IsWalking", false);
+        }
     }
 }
