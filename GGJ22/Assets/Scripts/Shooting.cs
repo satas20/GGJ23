@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Shooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float fireRate;
-    public float bulletSpeed;
+    private float fireRate;
+    private float bulletSpeed;
     private float nextFireTime;
     private Transform firePoint;
     public int gunNO;
@@ -86,7 +86,7 @@ public class Shooting : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[1];
+        //frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[1];
 
     }
 
@@ -103,13 +103,13 @@ public class Shooting : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-        frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[2];
+        //frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[2];
 
     }
 
     void DontShoot()
     {
-        frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = null;
+        //frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = null;
 
     }
 }
