@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Shooting : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float fireRate = 0.5f;
+    public float fireRate;
+    public float bulletSpeed;
     private float nextFireTime;
     private Transform firePoint;
     public int gunNO;
@@ -55,9 +56,12 @@ public class Shooting : MonoBehaviour
         }
         
     }
-    
+
     void LugerShoot()
     {
+        fireRate = 0.5f;
+        bulletSpeed = 10f;
+
         nextFireTime = Time.time + fireRate;
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -65,12 +69,15 @@ public class Shooting : MonoBehaviour
         Vector2 direction = (mousePosition - firePointPosition).normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
     }
 
     void M1CarbineShoot()
     {
+        fireRate = 2f;
+        bulletSpeed = 25f;
+
         nextFireTime = Time.time + fireRate;
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -78,13 +85,16 @@ public class Shooting : MonoBehaviour
         Vector2 direction = (mousePosition - firePointPosition).normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[1];
 
     }
 
     void AxeShoot()
     {
+        fireRate = 1f;
+        bulletSpeed = 10f;
+
         nextFireTime = Time.time + fireRate;
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -92,7 +102,7 @@ public class Shooting : MonoBehaviour
         Vector2 direction = (mousePosition - firePointPosition).normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
         frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[2];
 
     }
