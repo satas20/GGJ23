@@ -13,7 +13,6 @@ public class LevelBar : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(exp / levelReq);
         slider.value = exp / (levelReq);
         
         if (exp >= levelReq) 
