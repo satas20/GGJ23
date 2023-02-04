@@ -58,7 +58,6 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            Debug.Log(Vector2.Distance(transform.position, targetPosition));
             if (Vector2.Distance(transform.position, targetPosition) <= 0.5f)
             {
                 targetPosition = GetRandomTarget();

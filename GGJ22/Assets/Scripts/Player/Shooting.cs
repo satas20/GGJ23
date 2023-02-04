@@ -25,7 +25,6 @@ public class Shooting : MonoBehaviour
         firePoint = transform.Find("FirePoint");
         if (firePoint == null)
         {
-            Debug.LogError("FirePoint object not found.");
         }
         gunNO = 1;
     }
