@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage = 10; // damage dealt by the bullet
- 
-
-
-   
-
+    public int damage = 10; // damage dealt by the 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Enemy"))
