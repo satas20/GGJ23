@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(gameObject.GetComponent<Health>().death);
         if (!(gameObject.GetComponent<Health>().death))
         {
             if (enemyName == "MeleeEnemy")
