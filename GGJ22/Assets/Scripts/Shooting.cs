@@ -58,7 +58,6 @@ public class Shooting : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = direction * 10f;
-        frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[0];
 
     }
 
