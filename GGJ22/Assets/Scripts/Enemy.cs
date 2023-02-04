@@ -29,8 +29,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(gameObject.GetComponent<Health>().death);
-        if (!(gameObject.GetComponent<Health>().death))
+
+        if (enemyName == "MeleeEnemy")
         {
             if (enemyName == "MeleeEnemy")
             {
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-          //  Debug.Log(Vector2.Distance(transform.position, targetPosition));
+            Debug.Log(Vector2.Distance(transform.position, targetPosition));
             if (Vector2.Distance(transform.position, targetPosition) <= 0.5f)
             {
                 targetPosition = GetRandomTarget();
@@ -106,11 +106,5 @@ public class Enemy : MonoBehaviour
         {
             return new Vector2(0, 0);
         }
-    }
-
-    private void ceset()
-    {
-        animator.SetBool("ceset",true);
-        gameObject.GetComponent<Collider2D>().isTrigger = true;
     }
 }

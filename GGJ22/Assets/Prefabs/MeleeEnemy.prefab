@@ -4974,8 +4974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 0
-  hitParticle: {fileID: 777368487}
-  death: 0
+  cesetPrefab: {fileID: 1492727437491472349, guid: df9d87e97b12d914a997bc97fac21840, type: 3}
 --- !u!114 &6851662385480076663
 MonoBehaviour:
   m_ObjectHideFlags: 0

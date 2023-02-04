@@ -4,8 +4,7 @@ public class Health : MonoBehaviour
 {
     public int maxHealth = 100; // maximum health
     public int currentHealth; // current health
-    public ParticleSystem hitParticle;
-    public bool death;
+    public GameObject cesetPrefab;
     void Start()
     {
         currentHealth = maxHealth; // set initial health to maximum
@@ -18,21 +17,20 @@ public class Health : MonoBehaviour
         {
             Die(); // call the die function if health reaches zero
         }
-        hitParticle.Play();
     }
 
     void Die()
     {
         if (gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
             // handle player death
         }
         else if (gameObject.CompareTag("Enemy"))
         {
-            death = true;
             // handle enemy death
         }
+        Instantiate(cesetPrefab, this.transform.position, Quaternion.identity);
+        Destroy(gameObject);
         // destroy the game object
     }
 }
