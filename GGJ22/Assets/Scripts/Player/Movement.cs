@@ -9,6 +9,9 @@ public class Movement : MonoBehaviour
     public float speed;
     private Rigidbody2D rigidBody2D;
     private Animator animator;
+    private float horizontal;
+    private float vertical;
+
 
     void Start()
     {
@@ -19,8 +22,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
         if(Input.GetKey(KeyCode.LeftShift))
         {
@@ -33,12 +36,30 @@ public class Movement : MonoBehaviour
             animator.SetBool("IsRunning", false);
 
         }
+        
+    }
+
+    private void FixedUpdate()
+    {
+
+
+
         Vector2 direction = new Vector2(horizontal, vertical);
+        /*
         rigidBody2D.velocity = direction * speed;
-        if (direction.magnitude > 0) { animator.SetBool("IsWalking", true);}
+        */
+        if (direction.magnitude > 0) {
+            animator.SetBool("IsWalking", true); 
+            rigidBody2D.angularVelocity = 0;
+
+            Vector3 movementVector = new Vector3(direction.x, direction.y, 0);
+            transform.position += movementVector * 0.213f;
+        }
         else
         {
             animator.SetBool("IsWalking", false);
+            rigidBody2D.velocity *= 0;
+            rigidBody2D.angularVelocity = 0;
         }
     }
 }
