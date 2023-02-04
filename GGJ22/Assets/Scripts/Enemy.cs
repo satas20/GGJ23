@@ -32,15 +32,10 @@ public class Enemy : MonoBehaviour
 
         if (enemyName == "MeleeEnemy")
         {
-            if (enemyName == "MeleeEnemy")
-            {
-                MeleeEnemy();
-            }
-        }
-        else
-        {
-            ceset();
-        }
+            
+            MeleeEnemy();
+            
+        }    
     }
 
     private void MeleeEnemy()
