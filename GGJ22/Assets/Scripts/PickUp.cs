@@ -52,16 +52,13 @@ public class PickUp : MonoBehaviour
         {
             //Perform the pickup logic here
             Debug.Log("Picked up item!");
-            GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().cesetCount++;
 
             Destroy(ceset);
         }
         if (Input.GetKeyDown(KeyCode.E) && fýrýn == true)
         {
 
-            GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().exp += GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().cesetCount;
 
-            GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().cesetCount=0;
         }
     }
 }

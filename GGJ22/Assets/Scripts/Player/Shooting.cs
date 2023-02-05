@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        ammoCounter.text = ("x "+ammoCount.ToString());
+       // ammoCounter.text = ("x "+ammoCount.ToString());
         anim.SetBool("fire", isFire);
         if (Input.GetButton("Fire1") && Time.time >= nextFireTime && ammoCount>0)
         {
