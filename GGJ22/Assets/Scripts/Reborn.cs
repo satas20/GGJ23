@@ -26,6 +26,10 @@ public class Reborn : MonoBehaviour
         {
             rebornNow = false;
             GameObject enemy = Instantiate(reborningEnemy, transform.position, Quaternion.identity);
+            GameObject enemy1 = Instantiate(reborningEnemy, transform.position, Quaternion.identity);
+
+            enemy1.name = enemy1.name.Substring(0, enemy1.name.IndexOf('('));
+
             enemy.name = enemy.name.Substring(0, enemy.name.IndexOf('('));
 
             Destroy(this.gameObject);
