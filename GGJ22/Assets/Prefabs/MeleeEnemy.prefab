@@ -4995,7 +4995,7 @@ MonoBehaviour:
   attackRange: 3
   attackCooldown: 0.3
   damage: 50
-  chaseRange: 5
+  chaseRange: 10
 --- !u!61 &6851662385480076656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5093,7 +5093,7 @@ MonoBehaviour:
   - {x: -0.014814973, y: -0.47082227, z: 0}
   m_ShapePathHash: 493974599
   m_Mesh: {fileID: 0}
-  m_InstanceId: -19700
+  m_InstanceId: -58692
 --- !u!114 &1916771288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5120,4 +5120,4 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 45978
+  m_InstanceId: -58694

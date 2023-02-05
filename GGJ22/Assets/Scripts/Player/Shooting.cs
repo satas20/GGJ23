@@ -79,7 +79,7 @@ public class Shooting : MonoBehaviour
 
     void M1CarbineShoot()
     {
-        fireRate = 2f;
+        fireRate = 0.5f;
         bulletSpeed = 30f;
 
         
@@ -91,7 +91,7 @@ public class Shooting : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
         bullet.GetComponent<Bullet>().damage = 30;
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed * GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().PlayerLevel; ;
         //frontCanva.transform.GetChild(1).gameObject.GetComponent<Image>().sprite = gunSprites[1];
 
     }

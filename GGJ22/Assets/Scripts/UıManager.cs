@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class UıManager : MonoBehaviour
 {
     public Sprite[] characters;
+    public Sprite[] weapons;
+
     GameObject player;
     public GameObject animObject;
+    public GameObject silahObject;
+
     private WaitForSeconds beklemesuresi;
     private bool isbool;
     private void Start()
@@ -20,6 +24,32 @@ public class UıManager : MonoBehaviour
     }
     private void Update()
     {
+        int level = GetComponent<LevelBar>().PlayerLevel;
+        switch (level) 
+        {
+            case 1:
+                silahObject.GetComponent<Image>().sprite = weapons[0];
+
+                break;
+            case 2:
+                silahObject.GetComponent<Image>().sprite = weapons[1];
+
+                break;
+            case 3:
+                silahObject.GetComponent<Image>().sprite = weapons[2];
+                break;
+            case 4:
+                silahObject.GetComponent<Image>().sprite = weapons[3];
+                break;
+            case 5:
+                silahObject.GetComponent<Image>().sprite = weapons[4];
+                break;
+            case 6:
+                silahObject.GetComponent<Image>().sprite = weapons[5];
+                break;
+
+
+        }
         Health healt = player.GetComponent<Health>();
         if (healt.currentHealth < 33)
         {
