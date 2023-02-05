@@ -42,7 +42,6 @@ public class TreeTransparentLeaf : MonoBehaviour
 
     private void decreaseAlphaFunc()
     {
-        Debug.Log(timer + "----");
         if (timer > 0)
         {
             timer -= Time.fixedDeltaTime;
@@ -54,7 +53,6 @@ public class TreeTransparentLeaf : MonoBehaviour
 
     private void increaseAlphaFunc()
     {
-        Debug.Log(timer + "+++");
         if (timer > 0)
         {
             timer -= Time.fixedDeltaTime;
