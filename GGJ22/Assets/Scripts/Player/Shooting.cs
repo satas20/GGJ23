@@ -17,7 +17,7 @@ public class Shooting : MonoBehaviour
     public TMP_Text ammoCounter;
     public int ammoCount;
     private Animator anim;
-    private bool isFire = false;
+    public bool isFire = false;
 
     void Start()
     {

@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 777368486}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6851662385480076657}
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.14
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.00349222, g: 0.26415092, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4885,6 +4885,7 @@ GameObject:
   - component: {fileID: 6851662385480076656}
   - component: {fileID: 6851662385480076662}
   - component: {fileID: 5485169286053466706}
+  - component: {fileID: 1065330990}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -4975,6 +4976,7 @@ MonoBehaviour:
   maxHealth: 50
   currentHealth: 0
   cesetPrefab: {fileID: 1492727437491472349, guid: df9d87e97b12d914a997bc97fac21840, type: 3}
+  blood: {fileID: 777368487}
 --- !u!114 &6851662385480076663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4989,8 +4991,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolSpeed: 2
   chaseSpeed: 5
-  attackRange: 1
-  attackCooldown: 1
+  attackRange: 3
+  attackCooldown: 0.3
   damage: 50
   chaseRange: 5
 --- !u!61 &6851662385480076656
@@ -5003,7 +5005,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5060,3 +5062,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1065330990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851662385480076620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.34220743, y: -0.36712208, z: 0}
+  - {x: -0.4964975, y: 0.052384645, z: 0}
+  - {x: -0.41695142, y: 0.4086465, z: 0}
+  - {x: 0.101453066, y: 0.53406715, z: 0}
+  - {x: 0.40864623, y: 0.4086465, z: 0}
+  - {x: 0.5166968, y: 0.019165128, z: 0}
+  - {x: 0.36712182, y: -0.40034154, z: 0}
+  - {x: -0.014814973, y: -0.47082227, z: 0}
+  m_ShapePathHash: 493974599
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 105490

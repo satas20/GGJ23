@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
     public int maxHealth = 100; // maximum health
     public int currentHealth; // current health
     public GameObject cesetPrefab;
+    public ParticleSystem blood; 
     void Start()
     {
         currentHealth = maxHealth; // set initial health to maximum
@@ -12,6 +13,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        blood.Play();
         currentHealth -= damage; // decrease health by damage
         if (currentHealth <= 0)
         {

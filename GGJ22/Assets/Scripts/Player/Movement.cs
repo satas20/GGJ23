@@ -45,15 +45,13 @@ public class Movement : MonoBehaviour
 
 
         Vector2 direction = new Vector2(horizontal, vertical);
-        /*
+        
         rigidBody2D.velocity = direction * speed;
-        */
+        
         if (direction.magnitude > 0) {
             animator.SetBool("IsWalking", true); 
             rigidBody2D.angularVelocity = 0;
 
-            Vector3 movementVector = new Vector3(direction.x, direction.y, 0);
-            transform.position += movementVector * 0.213f;
         }
         else
         {
