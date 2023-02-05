@@ -31,6 +31,11 @@ public class PickUp : MonoBehaviour
             fýrýnObject = collision.gameObject;
 
         }
+        if (collision.gameObject.tag == "cephane")
+        {
+            this.gameObject.GetComponent<Shooting>().ammoCount += Random.Range(3, 5);
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -49,6 +54,7 @@ public class PickUp : MonoBehaviour
         }
 
     }
+
     private void Update()
     {
         isBurning = false;
