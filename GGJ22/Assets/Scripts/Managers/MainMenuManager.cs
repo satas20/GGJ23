@@ -9,12 +9,25 @@ public class MainMenuManager : MonoBehaviour
     public GameObject Credits;
     private void Awake()
     {
-               DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
     }
-    public void Play() {
+    public void Play()
+    {
 
         SceneManager.LoadScene("CutScene");
+        GetComponent<AudioSource>().Play();
+    }
+    public void playLevel()
+    {
+
+        SceneManager.LoadScene("Level");
+        GetComponent<AudioSource>().Play();
+    }
+    public void loadMenu()
+    {
+
+        SceneManager.LoadScene("MainMenu");
         GetComponent<AudioSource>().Play();
     }
     public void credits()

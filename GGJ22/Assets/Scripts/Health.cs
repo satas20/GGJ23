@@ -5,7 +5,10 @@ public class Health : MonoBehaviour
     public int maxHealth = 100; // maximum health
     public int currentHealth; // current health
     public GameObject cesetPrefab;
-    public ParticleSystem blood; 
+    public ParticleSystem blood;
+    public GameObject endGameScreen;
+    public GameObject levelUi;
+
     void Start()
     {
         currentHealth = maxHealth; // set initial health to maximum
@@ -25,14 +28,17 @@ public class Health : MonoBehaviour
     {
         if (gameObject.CompareTag("Player"))
         {
-            // handle player death
+            endGameScreen.SetActive(true);
+            levelUi.SetActive(false);
+            Destroy(gameObject.GetComponent<Shooting>());
         }
         else if (gameObject.CompareTag("Enemy"))
         {
+            Destroy(gameObject);
+            Instantiate(cesetPrefab, this.transform.position, Quaternion.identity);
+
             // handle enemy death
         }
-        Instantiate(cesetPrefab, this.transform.position, Quaternion.identity);
-        Destroy(gameObject);
         // destroy the game object
     }
 }
