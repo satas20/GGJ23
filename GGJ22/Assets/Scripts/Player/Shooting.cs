@@ -19,6 +19,8 @@ public class Shooting : MonoBehaviour
     private Animator anim;
     public bool isFire = false;
 
+    public AudioClip pistolShot;
+    public AudioSource aSource;
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -31,11 +33,12 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-       // ammoCounter.text = ("x "+ammoCount.ToString());
+        ammoCounter.text = ("x "+ammoCount.ToString());
         anim.SetBool("fire", isFire);
         if (Input.GetButton("Fire1") && Time.time >= nextFireTime && ammoCount>0)
         {
             ammoCount --;
+            aSource.Play();
             isFire = true;
             if(gunNO == 0)
             {

@@ -18,7 +18,7 @@ public class LevelBar : MonoBehaviour
 
     void Update()
     {
-        levelCounter.text = PlayerLevel.ToString();
+        levelCounter.text = "x "+ PlayerLevel.ToString();
         cesetReq = levelReq - exp;
         levelReqCounter.text = cesetReq.ToString();
         cestCounter.text = cesetCount.ToString();
