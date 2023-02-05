@@ -4886,6 +4886,7 @@ GameObject:
   - component: {fileID: 6851662385480076662}
   - component: {fileID: 5485169286053466706}
   - component: {fileID: 1065330990}
+  - component: {fileID: 1916771288}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -5092,4 +5093,31 @@ MonoBehaviour:
   - {x: -0.014814973, y: -0.47082227, z: 0}
   m_ShapePathHash: 493974599
   m_Mesh: {fileID: 0}
-  m_InstanceId: 67996
+  m_InstanceId: -19700
+--- !u!114 &1916771288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851662385480076620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 45978

@@ -40,11 +40,11 @@ public class Shooting : MonoBehaviour
             ammoCount --;
             aSource.Play();
             isFire = true;
-            if(gunNO == 0)
+            if(GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().PlayerLevel <= 3)
             {
                 LugerShoot();
             }
-            else if(gunNO == 1)
+            else if( GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().PlayerLevel>3)
             {   
                 M1CarbineShoot();
             }
@@ -62,6 +62,7 @@ public class Shooting : MonoBehaviour
 
     void LugerShoot()
     {
+        Debug.Log("LuggerShot" + " level" + GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().PlayerLevel);
         fireRate = 0.5f;
         bulletSpeed = 10f;
 
@@ -72,7 +73,7 @@ public class Shooting : MonoBehaviour
         Vector2 direction = (mousePosition - firePointPosition).normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, firePointPosition, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed * GameObject.FindGameObjectWithTag("Manager").GetComponent<LevelBar>().PlayerLevel ;
 
     }
 

@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efc8b6410715844281e4ce97648bfa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerLevel: 1
   slider: {fileID: 0}
   cesetCount: 0
   exp: 1

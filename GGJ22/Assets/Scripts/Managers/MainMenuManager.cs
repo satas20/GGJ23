@@ -5,27 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    private int isPlayed;
-    private void Start()
+    public GameObject Mainmenu;
+    public GameObject Credits;
+    private void Awake()
     {
-        isPlayed =PlayerPrefs.GetInt("isPlayed");
+               DontDestroyOnLoad(gameObject);
+
     }
     public void Play() {
 
-        if (isPlayed == 1) {
-            SceneManager.LoadScene("Level");
-        }
-        else
-        {
-            SceneManager.LoadScene("Tutorial");
-            PlayerPrefs.SetInt("isPlayed", 1);
-        }
-       
-        
-       
+        SceneManager.LoadScene("CutScene");
+        GetComponent<AudioSource>().Play();
+    }
+    public void credits()
+    {
+        Mainmenu.SetActive(false);
+        Credits.SetActive(true);
+        GetComponent<AudioSource>().Play();
+
+    }
+    public void CreditsBack()
+    {
+
+        Mainmenu.SetActive(true);
+        Credits.SetActive(false);
+        GetComponent<AudioSource>().Play();
+
     }
     public void Exit()
     {
+
         Application.Quit();
+        GetComponent<AudioSource>().Play();
+
     }
 }

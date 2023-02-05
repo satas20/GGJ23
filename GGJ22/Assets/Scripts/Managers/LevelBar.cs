@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 public class LevelBar : MonoBehaviour
 {
-    public static int PlayerLevel = 1;
+    public  int PlayerLevel = 1;
     public Slider slider;
     public int cesetCount;
     public float exp = 1;
