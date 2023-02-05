@@ -12,7 +12,6 @@ public class Movement : MonoBehaviour
     private float horizontal;
     private float vertical;
 
-
     void Start()
     {
         speed = 10f;
@@ -43,17 +42,25 @@ public class Movement : MonoBehaviour
     {
 
 
-
+        
         Vector2 direction = new Vector2(horizontal, vertical);
-        /*
+        
         rigidBody2D.velocity = direction * speed;
-        */
+        
         if (direction.magnitude > 0) {
             animator.SetBool("IsWalking", true); 
             rigidBody2D.angularVelocity = 0;
-
+            
+            /*
             Vector3 movementVector = new Vector3(direction.x, direction.y, 0);
-            transform.position += movementVector * 0.213f;
+            if (colliderBool)
+            {
+                transform.position -= movementVector * 0.426f;
+            }
+            else
+            {
+                transform.position += movementVector * 0.213f;
+            }*/
         }
         else
         {
