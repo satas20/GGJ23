@@ -5,9 +5,12 @@ using UnityEngine;
 public class blueprint : MonoBehaviour
 {
     private bool collide;
+    private Animator anim;
+    private bool locked = false;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         collide = false;
     }
 
@@ -16,8 +19,13 @@ public class blueprint : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            //blueprint on.
-            transform.GetChild(0).gameObject.SetActive(false);
+            if (!(locked))
+            {
+                locked = true;
+                anim.SetBool("go", true);
+                transform.GetChild(0).gameObject.SetActive(false);
+                StartCoroutine(WaitASecon());
+            }
         }
     }
 
@@ -31,4 +39,10 @@ public class blueprint : MonoBehaviour
         if (collision.gameObject.tag == "Player") { collide = false; }
 
     }
+
+    private IEnumerator WaitASecon()
+    {
+        yield return new WaitForSeconds(5);
+        this.gameObject.SetActive(false);
+    } 
 }

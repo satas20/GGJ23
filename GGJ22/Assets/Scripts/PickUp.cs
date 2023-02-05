@@ -14,7 +14,6 @@ public class PickUp : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("111");
 
         if (collision.gameObject.tag == "Ceset")
         {
@@ -43,7 +42,6 @@ public class PickUp : MonoBehaviour
             fýrýn = false;
 
         }
-        //Debug.Log("222");
 
     }
     private void Update()

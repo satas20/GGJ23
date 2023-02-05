@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
 
     private Vector2 GetRandomTarget()
     {
-        if(enemyName == "MeleeEnemy")
+        if (enemyName == "MeleeEnemy")
         {
             float x = Random.Range(transform.position.x - 20f, transform.position.x + 20f);
             float y = Random.Range(transform.position.y - 20f, transform.position.y + 20f);
