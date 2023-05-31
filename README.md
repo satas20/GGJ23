@@ -33,7 +33,6 @@ There is no external  Assets used in this game
 -  GGJ23  offical site https://globalgamejam.org/2023/games/burning-roots-6
 
 ## Preview
-- Gameplay video link : https://www.youtube.com/watch?v=HHih8q1bd_k
 <p >
   <img src="ScreenShots/ss1.png" width="350" >
   <img src="ScreenShots/ss2.png" width="350" >
