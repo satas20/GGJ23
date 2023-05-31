@@ -34,6 +34,7 @@ There is no external  Assets used in this game
 
 ## Preview
 <p >
+  Gameplay video : https://drive.google.com/file/d/1WuwnnBeJsI2uoM3CKdcYLvoYxtL7HESO/view?usp=sharing
   <img src="ScreenShots/ss1.png" width="350" >
   <img src="ScreenShots/ss2.png" width="350" >
   <img src="ScreenShots/ss3.png" width="350" >
